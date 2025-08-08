@@ -1,0 +1,86 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.1.3/schema.json",
+	"assist": {
+		"actions": {
+			"source": {
+				"organizeImports": "on",
+				"useSortedAttributes": "on",
+				"useSortedKeys": "on"
+			}
+		},
+		"enabled": true
+	},
+	"files": {
+		"ignoreUnknown": false
+	},
+	"formatter": {
+		"enabled": true,
+		"indentStyle": "tab"
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "double"
+		}
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"complexity": {
+				"noArguments": "error",
+				"noExcessiveCognitiveComplexity": {
+					"level": "error",
+					"options": {
+						"maxAllowedComplexity": 15
+					}
+				},
+				"noForEach": {
+					"level": "error",
+					"options": {
+						"allowedIdentifiers": []
+					}
+				}
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "info",
+				"useHookAtTopLevel": "error"
+			},
+			"nursery": {
+				"noMagicNumbers": "error",
+				"noNestedComponentDefinitions": "error",
+				"useExhaustiveSwitchCases": "error",
+				"useJsonImportAttribute": "error",
+				"useNumericSeparators": "error",
+				"useObjectSpread": "error",
+				"useSingleJsDocAsterisk": "error"
+			},
+			"performance": {
+				"noDelete": "error",
+				"noReExportAll": "error"
+			},
+			"recommended": true,
+			"style": {
+				"noCommonJs": "error",
+				"noEnum": "error",
+				"noExportedImports": "error",
+				"noNegationElse": "error",
+				"noYodaExpression": "error",
+				"useAsConstAssertion": "error",
+				"useAtIndex": "error",
+				"useBlockStatements": "error",
+				"useConsistentCurlyBraces": "error",
+				"useDefaultSwitchClause": "error",
+				"useExplicitLengthCheck": "error",
+				"useNamingConvention": "error",
+				"useSelfClosingElements": "error"
+			},
+			"suspicious": {
+				"noVar": "error"
+			}
+		}
+	},
+	"vcs": {
+		"clientKind": "git",
+		"enabled": false,
+		"useIgnoreFile": false
+	}
+}

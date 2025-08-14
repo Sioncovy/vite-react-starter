@@ -1,0 +1,37 @@
+# lefthook.yml
+
+# pre-commit 钩子在 `git commit` 时执行
+pre-commit:
+  # 单条命令即可覆盖 formatter + linter（更快）
+  parallel: false
+  commands:
+    # 命令1: 专注于代码格式化
+    format:
+      # 只在暂存的相关文件上运行
+      glob: "*.{js,ts,jsx,tsx,json,css}"
+      # --write 会写入格式化结果
+      # `{staged_files}` 是一个魔法变量，Lefthook 会自动将其替换为匹配 glob 模式的暂存文件名列表。
+      run: pnpm biome format --write {staged_files}
+      # 修复处理后的代码添加到暂存区
+      stage_fixed: true
+
+    # 命令2: 专注于代码质量检查和安全修复
+    lint:
+      glob: "*.{js,ts,jsx,tsx,json,css}"
+      run: pnpm biome lint --write {staged_files}
+      # 同样，自动暂存 biome lint 可能产生的安全修复
+      stage_fixed: true
+
+# 新增 commit-msg 钩子
+commit-msg:
+  # {1} 是 Lefthook 的魔法变量，代表传递给钩子的第一个参数
+  # 对于 commit-msg 钩子，这个参数正是包含 commit message 的临时文件路径
+  run: pnpm commitlint --edit {1}
+
+# 推送前做一次全量检查（不改动文件），保证 CI 一致性
+pre-push:
+  parallel: false
+  commands:
+    biome_check_all:
+      # 在仓库根目录跑；你也可以改为子包/子目录
+      run: pnpm biome check --reporter=summary --error-on-warnings .

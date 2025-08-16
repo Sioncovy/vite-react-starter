@@ -1,0 +1,57 @@
+name: Release
+
+# ======================================================================
+# ===               !!! ATTENTION TEMPLATE USER !!!                  ===
+# === To activate automated releases for your project, please        ===
+# === uncomment the 'on:' block below.                               ===
+# ===                                                                ===
+# === 模板使用者请注意：                                             ===
+# === 如需为您的项目激活自动化发布流程，请取消以下 'on:' 部分的注释。  ===
+# ======================================================================
+# on:
+#   push:
+#     branches:
+#       - main
+#   workflow_dispatch:
+
+jobs:
+  release:
+    name: Create Release
+    runs-on: ubuntu-latest
+    # 设置 job 的权限，允许它向 repo 写入内容和创建 release
+    permissions:
+      contents: write
+      issues: write
+      pull-requests: write
+      id-token: write
+      
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          # `semantic-release` 需要完整的 git 历史来分析 commits
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'pnpm'
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10
+          run_install: true
+
+      - name: Build
+        run: pnpm build
+
+      - name: Release
+        env:
+          # GITHUB_TOKEN 是必须的，用于 @semantic-release/github 插件
+          # GitHub Actions 会自动提供这个 token，我们只需授权 job 使用即可
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+           # 如果要发布到 NPM，需要在这里提供 NPM_TOKEN
+          # NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: pnpm semantic-release

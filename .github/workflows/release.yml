@@ -52,6 +52,7 @@ jobs:
           # GITHUB_TOKEN 是必须的，用于 @semantic-release/github 插件
           # GitHub Actions 会自动提供这个 token，我们只需授权 job 使用即可
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-           # 如果要发布到 NPM，需要在这里提供 NPM_TOKEN
+          # 如果要发布到 NPM，需要在这里提供 NPM_TOKEN
+          # 前往您仓库的 Settings > Secrets and variables > Actions，点击 New repository secret，创建一个名为 NPM_TOKEN 的 secret，并填入您的 NPM Access Token
           # NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: pnpm semantic-release

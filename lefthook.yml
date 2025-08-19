@@ -22,6 +22,10 @@ pre-commit:
       # 同样，自动暂存 biome lint 可能产生的安全修复
       stage_fixed: true
 
+    biome_check_all:
+      # 在仓库根目录跑；你也可以改为子包/子目录
+      run: pnpm biome check --reporter=summary --error-on-warnings .
+
 # 新增 commit-msg 钩子
 commit-msg:
   # {1} 是 Lefthook 的魔法变量，代表传递给钩子的第一个参数

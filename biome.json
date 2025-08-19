@@ -12,7 +12,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.css", "!.github/**"]
+    "includes": ["src/**/*.{js,ts,jsx,tsx,json,css}", "!.github/**"]
   },
   "formatter": {
     "enabled": true,

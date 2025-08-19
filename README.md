@@ -12,7 +12,8 @@
 - 图标库：Lucide
 - 代码质量：Biome（Lint & Format）
 - Git 提交规范：Lefthook + Commitlint + Commitizen（CZ）
-- 请求库：TanStack Query（计划中）
+- 客户端状态管理库：Zustand
+- 异步请求状态管理库：TanStack Query（计划中）
 
 ### Roadmap
 
@@ -25,12 +26,14 @@
 - 图标：Lucide（在主题切换中演示使用）
 - 代码质量：Biome Lint/Format 脚本
 - 提交校验：Lefthook 安装钩子、Commitlint 与 Commitizen 配置
+- 错误边界：全局兜底和路由兜底 ErrorBoundary
+- 环境配置：`.env` 管理与类型安全的环境变量声明
+- 路径别名：`@` 指向 `src`
 
 **未完成 / 计划中**
 - 请求与数据层：TanStack Query（`QueryClient`、`Provider`、示例请求与缓存策略）
 - 测试：Vitest + React Testing Library 单元测试与组件测试
 - CI：GitHub Actions（Lint/Build/Test 流程）
-- 环境配置：`.env` 管理与类型安全的环境变量声明
-- 错误边界与加载态：全局 ErrorBoundary、Suspense Fallback
+- 加载态：Suspense Fallback
 - 路由增强：基于路由的权限守卫与元信息（title、meta）
 - 工程化：别名路径、产物分析、Bundle 体积监控

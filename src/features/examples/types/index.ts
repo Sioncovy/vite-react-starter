@@ -18,7 +18,7 @@ export const ExampleArraySchema = z.array(ExampleSchema);
 export type Example = z.infer<typeof ExampleSchema>;
 
 // 从完整数据中筛出创建时需要的数据
-export const CreateExmapleDtoSchema = ExampleSchema.pick({
+export const CreateExampleDtoSchema = ExampleSchema.pick({
   title: true,
 });
-export type CreateExampleDto = z.infer<typeof CreateExmapleDtoSchema>;
+export type CreateExampleDto = z.infer<typeof CreateExampleDtoSchema>;

@@ -1,4 +1,3 @@
-/** biome-ignore-all assist/source/useSortedKeys: 需要手动指定顺序保证可读性 */
 export const exampleKeys = {
   // all 是根键，用于全局性地让所有 example 相关缓存失效
   all: ["example"] as const,

@@ -3,16 +3,14 @@
   "assist": {
     "actions": {
       "source": {
-        "organizeImports": "on",
-        "useSortedAttributes": "on",
-        "useSortedKeys": "on"
+        "organizeImports": "on"
       }
     },
     "enabled": true
   },
   "files": {
     "ignoreUnknown": false,
-    "includes": ["src/**/*.{js,ts,jsx,tsx,json,css}", "!.github/**"]
+    "includes": ["**/*.{js,ts,jsx,tsx,json,css}", "!.github/**"]
   },
   "formatter": {
     "enabled": true,
@@ -75,7 +73,6 @@
         "useConsistentCurlyBraces": "error",
         "useDefaultSwitchClause": "error",
         "useExplicitLengthCheck": "error",
-        "useNamingConvention": "error",
         "useSelfClosingElements": "error"
       },
       "suspicious": {

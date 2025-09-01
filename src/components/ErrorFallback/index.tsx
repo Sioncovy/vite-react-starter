@@ -1,4 +1,3 @@
-import { Card } from "@radix-ui/themes";
 import type { FallbackProps } from "react-error-boundary";
 import type { GlobalError } from "@/types/error";
 
@@ -7,7 +6,7 @@ export const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
   const errorBody = JSON.parse(error.message) as GlobalError;
 
   return (
-    <Card className="w-full h-full" role="alert">
+    <div className="w-full h-full" role="alert">
       <div className="flex flex-col items-center">
         <h2>{errorBody.title}</h2>
         <pre style={{ color: "red" }}>{errorBody.detail}</pre>
@@ -20,6 +19,6 @@ export const ErrorFallback = ({ error, resetErrorBoundary }: FallbackProps) => {
           Try again
         </button>
       </div>
-    </Card>
+    </div>
   );
 };

@@ -1,21 +1,7 @@
-import { Theme as RadixTheme } from "@radix-ui/themes";
-import { ThemeProvider as NextThemesProvider, useTheme } from "next-themes";
+import { ThemeProvider as NextThemesProvider } from "next-themes";
 import type { PropsWithChildren } from "react";
 
 const THEME_STORAGE_KEY = "app-theme";
-
-// 这个组件的目的是将 next-themes 的状态同步到 Radix Themes
-const RadixThemeAdapter = ({ children }: PropsWithChildren) => {
-  const { resolvedTheme } = useTheme(); // 从 next-themes 获取最终解析出的主题 ('light' 或 'dark')
-
-  // Radix <Theme> 组件需要一个明确的 appearance prop
-  // resolvedTheme 可能是 'light' 或 'dark'，正好匹配
-  return (
-    <RadixTheme appearance={resolvedTheme as "light" | "dark"}>
-      {children}
-    </RadixTheme>
-  );
-};
 
 // 这是我们最终要暴露出去的总 Provider
 export const AppThemeProvider = ({ children }: PropsWithChildren) => {
@@ -31,7 +17,7 @@ export const AppThemeProvider = ({ children }: PropsWithChildren) => {
       enableSystem
       storageKey={THEME_STORAGE_KEY}
     >
-      <RadixThemeAdapter>{children}</RadixThemeAdapter>
+      {children}
     </NextThemesProvider>
   );
 };

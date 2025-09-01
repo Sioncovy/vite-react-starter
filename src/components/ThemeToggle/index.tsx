@@ -1,8 +1,8 @@
 // src/components/ThemeToggle.tsx
 
-import { IconButton } from "@radix-ui/themes";
 import { MoonStar, Sun, SunMoon } from "lucide-react";
 import { useTheme } from "next-themes";
+import { Button } from "../ui/button";
 
 export const ThemeToggle = () => {
   // next-themes 提供的 hook，用来获取和设置主题
@@ -17,10 +17,10 @@ export const ThemeToggle = () => {
   };
 
   return (
-    <IconButton onClick={cycleTheme} variant="ghost">
+    <Button onClick={cycleTheme} variant="ghost">
       {theme === "light" && <Sun />}
       {theme === "dark" && <MoonStar />}
       {theme === "system" && <SunMoon />}
-    </IconButton>
+    </Button>
   );
 };

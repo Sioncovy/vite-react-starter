@@ -1,7 +1,6 @@
 import ReactDom from "react-dom/client";
 import { AppProvider } from "./providers";
 
-import "@radix-ui/themes/styles.css";
 import "./global.css";
 
 // Render the app

@@ -1,5 +1,4 @@
 /** biome-ignore-all lint/style/useNamingConvention: 枚举 */
-/** biome-ignore-all assist/source/useSortedKeys: 顺序的结构更清晰易懂*/
 export const HTTP_STATUS_CODE = {
   // 2xx Success
   OK: 200,
